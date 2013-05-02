@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DiplomaSms</title>
+  <title>SMS Serviceses</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-<h3>Привет!</h3>
-
+	<div id=main>
+		<header>
+			Header
+			<nav>
+				Nav
+			</nav>
+		</header>
+		<section>
+			<div id="height_header"></div>
+			<%= yield %>
+			HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />
+			<div id="height_footer"></div>
+		</section>
+		<footer>
+			Footer
+		</footer>
+	</div>
 </body>
 </html>
