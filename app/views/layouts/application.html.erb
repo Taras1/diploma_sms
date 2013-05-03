@@ -7,22 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id=main>
+	<section>
 		<header>
 			Header
 			<nav>
 				Nav
 			</nav>
 		</header>
-		<section>
-			<div id="height_header"></div>
-			<%= yield %>
-			HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />HI!<br />
-			<div id="height_footer"></div>
-		</section>
-		<footer>
-			Footer
-		</footer>
-	</div>
+		<%= yield %>
+		<div id="height_footer"></div>
+	</section>
+	<footer>
+		Footer
+	</footer>
 </body>
 </html>
