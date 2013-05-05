@@ -7,13 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="background_header"></div>
 	<section>
 		<header>
-			Header
-			<nav>
-				Nav
-			</nav>
+			<div style="padding: 5px 30px;"><%= image_tag("sms.png", :size => "80x80", :style => "margin:0;padding:0;")%></div>
 		</header>
+		<nav>
+			<ul class="menu">
+    			<li><a href="#">Home</a></li>
+    			<li><a href="#">About us</a></li>
+   			 	<li><a href="#">Portfolio</a></li>
+    			<li><a href="#">Contact us</a></li>
+    			<li><a href="#">FAQ</a></li>
+			</ul>
+		</nav>
 		<%= yield %>
 		<div id="height_footer"></div>
 	</section>
