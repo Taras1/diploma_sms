@@ -46,7 +46,7 @@ footer {
 	background-color:#E165B9;
 	/*border-radius: 100px 30px;*/
 	height:40px;
-	margin-top:-40px;/*значение минус высота footer*/
+	margin-top:-40px; /*значение минус высота footer*/
 }
 #height_footer {
 	height:40px;/*высота footer*/
