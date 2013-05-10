@@ -1,17 +1,18 @@
-<% if @user.errors.any? %>
-	
-<%end%>
 <div class="form_for">
 	<%= form_for :user, :url => { :action => :create} do |f| %>
 		<%= f.label "Имя" %><br />
 		<%=f.text_field :name %>
 		<% if @user.errors.any? %>
 			<div class="form_errors"><%= @user.errors[:name][0] %></div>
+			<% else %>
+			<br />
 		<%end%>
 		<%= f.label "E-mail" %><br />
 		<%=f.text_field :email %>
 		<% if @user.errors.any? %>
 			<div class="form_errors"><%= @user.errors[:email][0] %></div>
+			<% else%>
+			<br />
 		<%end%>
 		<%= f.label "Пароль" %><br />
 		<%=f.password_field :password %>
