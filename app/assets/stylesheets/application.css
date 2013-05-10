@@ -89,3 +89,31 @@ ul.menu li a:hover,
 ul.menu li.active a{
 	background-color:#BE008A;
 }
+div.form_for {
+	/*background-color: #9CEF6C;*/
+	width: 330px;
+	margin: 0 auto 10px;
+	padding: 0px 50px 20px 50px;
+	/*height: 350px;*/
+	text-align: left;
+}
+div.form_for form {
+	margin:10px 10px;
+	padding:20px 0 0 30px;;
+}
+div.form_for input:focus {
+	/*background-color:#E165B9;*/
+	border:2px solid green;
+}
+div.form_for input {
+	background-color:#A9F5A9;
+	/*border: 2px solid green;*/
+}
+.field_with_errors input {
+	border:2px solid #F30021;
+}
+.form_errors {
+	color:#F30021;
+	font-size:10pt;
+	padding: 0 0 10px;
+}
