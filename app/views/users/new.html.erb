@@ -1,3 +1,5 @@
+<br /><br />
+<span style="font: bold 300%/50px Impact  sans-serif;color: #6E6E6E">Регистрация</span>
 <div class="form_for">
 	<%= form_for :user, :url => { :action => :create} do |f| %>
 		<%= f.label "Имя" %><br />
@@ -5,19 +7,21 @@
 		<% if @user.errors.any? %>
 			<div class="form_errors"><%= @user.errors[:name][0] %></div>
 			<% else %>
-			<br />
+			<br /><br />
 		<%end%>
 		<%= f.label "E-mail" %><br />
 		<%=f.text_field :email %>
 		<% if @user.errors.any? %>
 			<div class="form_errors"><%= @user.errors[:email][0] %></div>
 			<% else%>
-			<br />
+			<br /><br />
 		<%end%>
 		<%= f.label "Пароль" %><br />
 		<%=f.password_field :password %>
 		<% if @user.errors.any? %>
 			<div class="form_errors"><%= @user.errors[:password][0]%></div>
+			<% else %>
+			<br /><br />
 		<%end%>
 		<%= f.label "Подтверждение пароля" %><br />
 		<%=f.password_field :password_confirmation %>

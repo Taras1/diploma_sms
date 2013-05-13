@@ -99,7 +99,7 @@ div.form_for {
 }
 div.form_for form {
 	margin:10px 10px;
-	padding:20px 0 0 30px;;
+	padding:20px 0 0 50px;;
 }
 div.form_for input:focus {
 	/*background-color:#E165B9;*/
@@ -117,3 +117,26 @@ div.form_for input {
 	font-size:10pt;
 	padding: 0 0 10px;
 }
+.error {
+	background: url("/assets/error.png") left center no-repeat;
+	background-size:30px auto;
+	background-color:#FFBABA;
+	border: 1px solid red;
+	padding:10px 15px 10px 40px;
+	width:400px;
+	text-align:center;
+	margin:0 auto;
+	color:red;
+	font-size:13px;
+}
+.notice {
+	background: url("/assets/succesful.png") left center no-repeat;
+	background-size:30px auto;
+	background-color:#81F79F;
+	border: 1px solid green;
+	padding:10px 15px 10px 40px;
+	width:300px;
+	text-align:center;
+	margin:15px auto;
+	color:green;
+	font-size:13px;

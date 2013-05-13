@@ -1,3 +1,4 @@
+#encoding: utf-8
 class UsersController < ApplicationController
   def new
     @user=User.new
@@ -5,10 +6,11 @@ class UsersController < ApplicationController
   def create
     @user=User.new(params[:user])
     if @user.save
+      flash[:notice] = "Вы успешно зарегистрировались!"
+      session[:id]=@user.id
       redirect_to user_path(@user.id)
-      #render :show #Это колесо нужно убрать
     else
-      render :action => :new
+      render :new
     end
   end
   def show

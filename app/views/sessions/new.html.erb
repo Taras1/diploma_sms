@@ -1,0 +1,17 @@
+<br /><br />
+<span style="font: bold 300%/45px Impact  sans-serif;color: #6E6E6E">Вход на сайт</span>
+<br /><br /><br />
+<% if flash[:error] %>
+	<div class="error"><%= flash[:error] %></div>
+<% end %>
+<div class="form_for">
+	<%= form_for :session, :url => {:controller => :sessions, :action => :create} do |f| %>
+		<%= f.label "E-mail" %><br />
+		<%=f.text_field :email %><br /><br />
+		<%= f.label "Пароль" %><br />
+		<%=f.password_field :password %><br /><br />
+		<br /><br />
+		<%= f.submit "Войти"%>
+	<% end %>
+	
+</div>
