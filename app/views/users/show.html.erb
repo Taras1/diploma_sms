@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
 	<div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<h1>Здравствуйте <%= @user.name %></h1><br />
+<div class="the_title_of_page">Здравствуйте <span style="color:#5882FA">"<%= @user.name %>"</span></div><br />
 <h1>Ваш id=<%= session[:id] %></h1>
