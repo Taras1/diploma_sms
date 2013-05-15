@@ -10,7 +10,7 @@
 	<div id="background_header"></div>
 	<section>
 		<header>
-			<div style="padding: 5px 30px;float: left;"><%= image_tag("sms.png", :size => "80x80", :style => "margin:0;padding:0;")%></div>
+			<div style="padding: 6px 30px;float: left;"><%= image_tag("sms.png", :size => "75x75", :style => "margin:0;padding:0;")%></div>
 			<span style="font: bold 300%/90px Impact  sans-serif;color: #D8D8D8;">Сервисы</span>
 			<div style="text-align: right;float: right;margin: 45px 25px 5px 0px">
 				<ul id="menu_header">
@@ -27,18 +27,19 @@
 		</header>
 		<nav>
 			<ul class="menu">
-    			<li><a href="#">Home</a></li>
-    			<li><a href="#">About us</a></li>
-   			 	<li><a href="#">Portfolio</a></li>
-    			<li><a href="#">Contact us</a></li>
-    			<li><a href="#">FAQ</a></li>
+				<li><%= link_to "Главная", root_path %></li>
+    			<li><%= link_to "Моя информация", user_path(session[:id]? session[:id]:0) %></li>
+    			<li><a href="#">Отправить SMS</a></li>
+   			 	<li><a href="#">Уведомления</a></li>
+    			<li><a href="#">Управление персоналом</a></li>
+    			<li><a href="#">О сайте</a></li>
 			</ul>
 		</nav>
 		<div id="content" style="margin: 0 auto;text-align: center;"><%= yield %></div>
 		<div id="height_footer"></div>
 	</section>
-	<footer>
-		Footer
+	<footer style="text-align: center;font: bold 100%/40px Impact  sans-serif;color: #47036F;">
+		&copySmyzer 2013
 	</footer>
 </body>
 </html>

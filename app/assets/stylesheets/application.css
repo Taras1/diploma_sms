@@ -64,7 +64,7 @@ footer {
 }
 ul.menu {
 	list-style:none;
-	width:624px; /*ширина всех ссылок*/
+	width:770px; /*ширина всех ссылок*/
 	height:35px;
 	margin: 0 auto;
 	padding: 0;
@@ -77,7 +77,7 @@ ul.menu li {
 ul.menu li a {
 	display:block;
 	height:35px;
-	padding:0 35px;
+	padding:0 13px;
 	float:left;
 	text-transform: uppercase;
 	font:75%/35px Helvetica,"microsoft sans serif",arial,sans-serif;

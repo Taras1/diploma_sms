@@ -2,4 +2,7 @@
 	<div class="notice"><%= flash[:notice] %></div>
 <% end %>
 <div class="the_title_of_page">Здравствуйте <span style="color:#5882FA">"<%= @user.name %>"</span></div><br />
-<h1>Ваш id=<%= session[:id] %></h1>
+<div style="margin: 0 auto;text-align: left;width: 500px;border: 1px solid pink;padding: 20px;">
+Ваш E-mail: <%= @user.email %><br />
+Вы зарегистрированы: <%= @user.created_at.to_s[0..-5] %>
+</div>
