@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  phone_number: 
+  message: MyText
+  status: false
+  id_message: 1
+  user: 
+
+two:
+  phone_number: 
+  message: MyText
+  status: false
+  id_message: 1
+  user: 

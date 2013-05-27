@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       session[:id]=@user.id
       redirect_to user_path(@user.id)
     else
+      flash.now[:error] = "Некорректные данные!"
       render :new
     end
   end

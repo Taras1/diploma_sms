@@ -1,7 +1,9 @@
 DiplomaSms::Application.routes.draw do
 
-  
-  resources :users
+
+  resources :users, :only => [:new, :show, :create] do
+    resources :send_sms, :only => [:new, :create, :index, :destroy]
+  end
   resources :sessions, :only => :create
   
   match "/signout", to: "sessions#destroy"

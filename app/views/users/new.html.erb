@@ -1,4 +1,7 @@
 <div class="the_title_of_page">Регистрация</div>
+<% if flash[:error] %>
+	<div class="error"><%= flash[:error] %></div>
+<% end %>
 <div class="form_for">
 	<%= form_for :user, :url => { :action => :create} do |f| %>
 		<%= f.label "Имя" %><br />
@@ -28,4 +31,4 @@
 		<%= f.submit "Зарегистрироваться"%>
 	<%end%>
 </div>
-<p style="border: 1px solid pink;padding: 5px;width: 500px;margin: 0 auto 10px;font-size: 13px">Если вы зарегистрированый пользователь, для входа перейдите по <%= link_to "ссылке", signin_path %></p>
+<p class="info_under_form">Если вы зарегистрированый пользователь, для входа перейдите по <%= link_to "ссылке", signin_path %></p>

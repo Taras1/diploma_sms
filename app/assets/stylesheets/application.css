@@ -101,14 +101,15 @@ div.form_for form {
 	margin:10px 10px;
 	padding:20px 0 0 50px;;
 }
-div.form_for input:focus {
+div.form_for input:focus, textarea:focus {
 	/*background-color:#E165B9;*/
 	border:2px solid green;
 }
-div.form_for input {
+div.form_for input, textarea {
 	background-color:#A9F5A9;
 	/*border: 2px solid green;*/
 }
+
 .field_with_errors input {
 	border:2px solid #F30021;
 }
@@ -163,4 +164,11 @@ div.form_for input {
 #menu_header li a:hover,
 #menu_header li.active a{
 	color:white;
+}
+.info_under_form {
+	border: 1px solid pink;
+	padding: 5px;
+	width: 500px;
+	margin: 0 auto 10px;
+	font-size: 13px
 }

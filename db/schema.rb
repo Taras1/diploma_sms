@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507103233) do
+ActiveRecord::Schema.define(:version => 20130518204501) do
+
+  create_table "sent_sms", :force => true do |t|
+    t.integer  "sms_id"
+    t.string   "phone_number"
+    t.text     "message"
+    t.boolean  "status"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "sent_sms", ["user_id"], :name => "index_sent_sms_on_users_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

@@ -2,7 +2,9 @@
 	<div class="notice"><%= flash[:notice] %></div>
 <% end %>
 <div class="the_title_of_page">Здравствуйте <span style="color:#5882FA">"<%= @user.name %>"</span></div><br />
-<div style="margin: 0 auto;text-align: left;width: 500px;border: 1px solid pink;padding: 20px;">
+<%= link_to "Просмотреть отправленные СМС", user_send_sms_path(:user_id => session[:id]) %>
+<br /><br />
+<div class="info_under_form">
 Ваш E-mail: <%= @user.email %><br />
-Вы зарегистрированы: <%= @user.created_at.to_s[0..-5] %>
+Вы зарегистрированы: <%= @user.created_at %>
 </div>
