@@ -110,7 +110,7 @@ div.form_for input, textarea {
 	/*border: 2px solid green;*/
 }
 
-.field_with_errors input {
+.field_with_errors input, .field_with_errors textarea {
 	border:2px solid #F30021;
 }
 .form_errors {

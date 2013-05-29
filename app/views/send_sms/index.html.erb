@@ -1,3 +1,4 @@
+<div class="the_title_of_page">История отправленных СМС</div>
 <div style="margin: 20px auto 50px">
 	<% if @smses.size == 0 %>
 		<p style="margin-top: 50px;font-size: 17px;">Вы не имеете истории отправленных сообщений, вернуться <%= link_to "назад", :controller => :send_sms, :action => :new, :user_id => session[:id] %></p>

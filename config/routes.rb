@@ -1,13 +1,15 @@
 DiplomaSms::Application.routes.draw do
 
 
-  resources :users, :only => [:new, :show, :create] do
-    resources :send_sms, :only => [:new, :create, :index, :destroy]
+  resources :users,       :only => [:new, :show, :create] do
+    resources :send_sms,  :only => [:new, :create, :index, :destroy]
+    resources :reminders, :only => [:new, :create, :index, :destroy]
   end
   resources :sessions, :only => :create
   
-  match "/signout", to: "sessions#destroy"
-  match "/signin", to: "sessions#new"
+  match "/signout",   to: "sessions#destroy"
+  match "/signin",    to: "sessions#new"
+  match "/about",     to: "welcome#about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

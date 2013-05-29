@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: MyText
+  phone_number: MyString
+  user: 
+  time_to_send: MyString
+  sms_id: 1
+  status: false
+
+two:
+  message: MyText
+  phone_number: MyString
+  user: 
+  time_to_send: MyString
+  sms_id: 1
+  status: false

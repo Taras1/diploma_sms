@@ -8,11 +8,11 @@
 <div class="form_for">
 	<%= form_for :sms,:url => {:controller => :send_sms, :action => :create}, :user_id => session[:id] do |f| %>
 		<%= f.label "Номер телефона:" %><br />
-		<span style="font-size: 12px;background-color: #F3E2A9;">В формате: 38 XXX XXXXXXX</span>
+		<span style="font-size: 12px;background-color: #F3E2A9;">В формате: 38 068 1234567</span>
 		<%=f.text_field :phone_number %><br /><br />
 		<%= f.label "Сообщение" %><br />
 		<span style="font-size: 12px;background-color: #F3E2A9;">Размер сообщения до 240 символов</span>
-		<%=f.text_area :message, :size => "25x4" %><br /><br />
+		<%=f.text_area :message, :size => "25x4", :maxlength => "240" %><br /><br />
 		<br /><br />
 		<%= f.submit "Отправить"%>
 	<% end %>
