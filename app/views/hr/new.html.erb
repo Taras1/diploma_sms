@@ -1,0 +1,38 @@
+<div class="the_title_of_page">Новый работник</div>
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:error] %>
+	<div class="error"><%= flash[:error] %></div>
+<% end %>
+<div class="form_for">
+	<%= form_for :employee, :url => {:controller => :hr, :action => :create}, :user_id => session[:id] do |f| %>
+	
+		<%= f.label "Фамилия:" %><br />
+		<%= f.text_field :last_name %>
+		<% if @employee.errors.any? %>
+			<div class="form_errors"><%= @employee.errors[:last_name][0] %></div>
+		<% else %>
+			<br /><br />
+		<% end %>
+		
+		<%= f.label "Имя:" %><br />
+		<%= f.text_field :first_name %>
+		<% if @employee.errors.any? %>
+			<div class="form_errors"><%= @employee.errors[:first_name][0] %></div>
+		<% else %>
+			<br /><br />
+		<% end %>
+		
+		<%= f.label "Номер телефона:" %><br />
+		<span style="font-size: 12px;background-color: #F3E2A9;">В формате: 38 068 1234567</span>
+		<%=f.text_field :phone_number %>
+		<% if @employee.errors.any? %>
+			<div class="form_errors"><%= @employee.errors[:phone_number][0] %></div>
+		<% else %>
+			<br /><br />
+		<% end %>
+		<br />
+		<%= f.submit "Отправить"%>
+	<% end %>
+</div>

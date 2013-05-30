@@ -1,0 +1,49 @@
+<div class="the_title_of_page">Управление персоналом</div>
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div><br /><br />
+<% end %>
+<% if flash[:error] %>
+	<div class="error"><%= flash[:error] %></div><br /><br />
+<% end %>
+
+<table align="center">
+	<tr>
+		<td>Добавить нового работника</td>
+		<td width="50px"><%= link_to image_tag("add.png", :size =>"35x35", :style => "margin:0;padding:0;"), new_user_hr_path(:user_id => session[:id]) %></td>
+	</tr>
+</table>
+<br />
+<% if @employees.size == 0 %>
+	<p style="margin: 30px auto;font-size: 17px;">Вы еще не внесли работников в сисок</p>
+<% else %>
+<%= form_for :broadcast, :url => user_send_sms_for_employees_path(:user_id => session[:id])  do |f| %>
+<div style="border: 1px solid pink;
+			padding: 7px 0px;
+			margin: 0 auto;
+			width: 700px;">
+<%= f.label "Отправить сообщение всем работникам" %> <%= f.text_field :message %>
+<%= f.submit "Отправить" %>
+<% end %>
+</div>
+<br />
+<table align="center">
+	<tr>
+		<th>Работник</th>
+		<th>Номер телефона</th>
+	</tr>
+	<% @employees.each do |empl| %>
+	<tr>
+		<td><%= empl.last_name %> <%= empl.first_name %></td>
+		<td><%= empl.phone_number %></td>
+		<td>
+			<%= form_for :info, :url => user_sms_for_empl_path(:user_id => session[:id], :employee_id => empl.id)  do |f| %>
+				<%= f.text_field :message %>
+				<%= f.submit "Отправить" %>
+			<% end %>
+		</td>
+		<td><%= link_to image_tag("error.png", :size => "20x20", :style => "margin:0;padding:0;"), user_hr_url(:user_id => session[:id], :id => empl.id), :method => :delete %></td>
+	</tr>
+	<% end %>
+</table>
+
+<% end %>

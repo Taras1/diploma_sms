@@ -7,5 +7,5 @@
 <br /><br />
 <div class="info_under_form">
 Ваш E-mail: <%= @user.email %><br />
-Вы зарегистрированы: <%= @user.created_at %>
+Вы зарегистрированы: <%= @user.created_at.getlocal.to_s[0..-7] %>
 </div>

@@ -27,12 +27,12 @@
 		</header>
 		<nav>
 			<ul class="menu">
-				<li><%= link_to "Главная", root_path %></li>
-    			<li><%= link_to "Моя информация", user_path(session[:id]? session[:id]:0) %></li>
-    			<li><%= link_to "Отправить SMS", :controller => :send_sms, :action => :new, :user_id => session[:id]? session[:id]:0 %></li>
-   			 	<li><%= link_to "Уведомления", user_reminders_path(:user_id => session[:id]? session[:id]:0) %></li>
-    			<li><a href="#">Управление персоналом</a></li>
-    			<li><%= link_to "О сайте", about_path %></li>
+				<li><%= link_to "Главная", 					root_path %></li>
+    			<li><%= link_to "Моя информация", 			user_path(session[:id]? session[:id]:0) %></li>
+    			<li><%= link_to "Отправить SMS", 			:controller => :send_sms, :action => :new, :user_id => session[:id]? session[:id]:0 %></li>
+   			 	<li><%= link_to "Уведомления", 				user_reminders_path(:user_id => session[:id]? session[:id]:0) %></li>
+    			<li><%= link_to "Управление персоналом", 	user_hr_index_path(:user_id => session[:id]? session[:id]:0) %></li>
+    			<li><%= link_to "О сайте", 					about_path %></li>
 			</ul>
 		</nav>
 		<div id="content" style="margin: 0 auto;text-align: center;"><%= yield %></div>

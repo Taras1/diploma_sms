@@ -1,5 +1,5 @@
 <div class="the_title_of_page">Ваши напоминания</div>
-<p class="info_under_form" style="font-size: 16px"><%= link_to "Создать напоминание", new_user_reminder_path(session[:id]? session[:id]:0) %></p>
+<p class="info_under_form" style="font-size: 17px"><%= link_to "Создать напоминание", new_user_reminder_path(session[:id]? session[:id]:0) %></p>
 <br />
 <% if @reminders.size == 0 %>
 	<p>Вы еще не создали ни одного напоминания </p>

@@ -8,11 +8,11 @@ class Reminder < ActiveRecord::Base
   VALID_PHONE_NUMBER_REGEX = /\A38( ||)[0-9]{3}( |)[0-9]{7}\z/
   
   validates :message, length: {in: 1..240, message:"Сообщение должно содержать от 1 до 240 символов"}
-  #validates :phone_number, format: {with: VALID_PHONE_NUMBER_REGEX, message: "Неверно введен номер телефона"}
+  validates :phone_number, format: {with: VALID_PHONE_NUMBER_REGEX, message: "Неверно введен номер телефона"}
   validates :time_to_send, format: {with: VALID_TIME_REGEX, message: "Неверно введена дата"}
-
-  #after_validation do |rmd|
-      
-  #end
+  
+  before_save do |rmd|
+    rmd.phone_number = rmd.phone_number.delete " "
+  end
 
 end

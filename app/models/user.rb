@@ -2,6 +2,7 @@
 class User < ActiveRecord::Base
   has_many :sent_smses, :class_name => "SentSms"
   has_many :reminders
+  has_many :employees
   attr_accessible :email, :password, :name, :password_confirmation
   
   VALID_EMAILS_REGEX= /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/

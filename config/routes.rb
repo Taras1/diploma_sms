@@ -1,15 +1,17 @@
 DiplomaSms::Application.routes.draw do
 
-
   resources :users,       :only => [:new, :show, :create] do
     resources :send_sms,  :only => [:new, :create, :index, :destroy]
     resources :reminders, :only => [:new, :create, :index, :destroy]
+    resources :hr,        :only => [:new, :create, :index, :destroy]
+    post "/send_sms_for_employee/:employee_id"  => "hr#send_sms",   :as => "sms_for_empl"
+    post "/send_sms_for_employees"              => "hr#send_sms_for_all"
   end
   resources :sessions, :only => :create
   
-  match "/signout",   to: "sessions#destroy"
-  match "/signin",    to: "sessions#new"
-  match "/about",     to: "welcome#about"
+  get "/signout"  => "sessions#destroy"
+  get "/signin"   => "sessions#new"
+  get "/about"    => "welcome#about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -29,8 +29,8 @@ class SendSmsController < ApplicationController
   end
   
   def destroy
-    sms = SentSms.find(params[:id])
-    @user.sent_smses.delete(sms)
+    sms = @user.sent_smses.find(params[:id])
+    @user.sent_smses.destroy(sms)
     redirect_to user_send_sms_path(@user)
   end
   
