@@ -10,7 +10,7 @@
 	<%= form_for :reminder, :url => {:controller => :reminders, :action => :create}, :user_id => session[:id] do |f| %>
 		<%= f.label "Дата напоминания:" %><br />
 		<span style="font-size: 12px;background-color: #F3E2A9;">В формате: 2013-05-29 15:30</span>
-		<%= f.text_field :time_to_send %>
+		<%= f.text_field :time_to_send, :value => Time.now.to_s[0..15] %>
 		<% if @reminder.errors.any? %>
 			<div class="form_errors"><%= @reminder.errors[:time_to_send][0] %></div>
 		<% else %>
