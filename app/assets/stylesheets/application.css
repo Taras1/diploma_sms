@@ -172,3 +172,20 @@ div.form_for input, textarea {
 	margin: 0 auto 10px;
 	font-size: 13px
 }
+.table_index{
+	width:850px;
+	border-spacing: 0;
+}
+.table_index th {
+	border-bottom: 3px solid #F30021;
+	background-color: #F5A9A9;
+	padding: 5px;
+	color: #DF0101;
+}
+.table_index td {
+	padding: 5px;
+	border-bottom: 1px dashed #F30021;
+}
+.table_index tr:hover {
+	background-color: #F5A9A9;
+}

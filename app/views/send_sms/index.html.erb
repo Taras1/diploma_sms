@@ -3,17 +3,18 @@
 	<% if @smses.size == 0 %>
 		<p style="margin-top: 50px;font-size: 17px;">Вы не имеете истории отправленных сообщений</p>
 	<% else %>
-		<table align="center">
+		<table align="center" class="table_index">
 			<tr>
 				<th>Номер телефона</th>
 				<th width="350px">Текст сообщения</th>
 				<th>Статус</th>
 				<th>Время отправки</th>
+				<th></th>
 			</tr>
 			<% @smses.each do |msg| %>
 			<tr>
 				<td><%= msg.phone_number %></td>
-				<td><%= msg.message %></td>
+				<td align="justify"><%= msg.message %></td>
 				<td><%= msg.status ? "Отправлено" : "Не отправлено" %></td>
 				<td><%= msg.created_at.getlocal.to_s[0..-7] %></td>
 				<td><%= link_to image_tag("error.png", :size => "20x20", :style => "margin:0;padding:0;"), {:controller => :send_sms, :action => :destroy, :user_id => session[:id], :id => msg.id}, :method => :delete %></td>

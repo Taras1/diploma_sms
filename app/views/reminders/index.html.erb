@@ -4,21 +4,22 @@
 <% if @reminders.size == 0 %>
 	<p>Вы еще не создали ни одного напоминания </p>
 <% else %>
-	<table align="center">
+	<table align="center" class="table_index">
 		<tr>
 			<th>Время напоминания</th>
-			<th width="300px">Сообщение</th>
+			<th max-width="300px">Сообщение</th>
 			<th>Номер телефона</th>
 			<th>Статус</th>
+			<th></th>
 		</tr>
 		<% @reminders.each do |rmd| %>
 		<tr>
 			<td><%= rmd.time_to_send %></td>
-			<td><%= rmd.message %></td>
+			<td align="justify"><%= rmd.message %></td>
 			<td><%= rmd.phone_number %></td>
 			<td><%= rmd.status ? "Отправлено" : "Не отправлено" %></td>
 			<% if check_to_add_link(rmd.time_to_send, rmd.status) %>
-			<td><%= link_to "Удалить", user_reminder_path(:user_id => session[:id], :id => rmd.id), :method => :delete %></td>
+			<td><%= link_to image_tag("error.png", :size => "20x20", :style => "margin:0;padding:0;"), user_reminder_path(:user_id => session[:id], :id => rmd.id), :method => :delete %></td>
 			<% end %>
 		</tr>
 		<% end %>

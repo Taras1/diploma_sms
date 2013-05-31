@@ -19,6 +19,7 @@ class SendSmsController < ApplicationController
       flash.now[:notice] = "Сообщение успешно отправлено в обработку"
       render :new
     else
+      @sms = SentSms.new(:phone_number => params[:sms][:phone_number], :message => params[:sms][:message])
       flash.now[:error] = "Ошибка в заполнении формы"
       render :new
     end

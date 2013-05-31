@@ -26,18 +26,20 @@
 <% end %>
 </div>
 <br />
-<table align="center">
+<table align="center" class="table_index">
 	<tr>
 		<th>Работник</th>
 		<th>Номер телефона</th>
+		<th>Информационнное сообщение</th>
+		<th></th>
 	</tr>
 	<% @employees.each do |empl| %>
 	<tr>
-		<td><%= empl.last_name %> <%= empl.first_name %></td>
+		<td align="left"><%= empl.last_name %> <%= empl.first_name %></td>
 		<td><%= empl.phone_number %></td>
 		<td>
 			<%= form_for :info, :url => user_sms_for_empl_path(:user_id => session[:id], :employee_id => empl.id)  do |f| %>
-				<%= f.text_field :message %>
+				<%= f.text_field :message, :maxlength => "240", :size => "45x1" %>
 				<%= f.submit "Отправить" %>
 			<% end %>
 		</td>
