@@ -1,12 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :test do
+  gem 'sqlite3'
+end
 
+group :production, :development do
+  gem "pg"
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,3 +43,4 @@ gem "unicode", "~> 0.4.4"
 
 # To use debugger
 # gem 'debugger'
+
