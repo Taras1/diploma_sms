@@ -5,7 +5,15 @@
 <% if flash[:error] %>
 	<div class="error"><%= flash[:error] %></div><br /><br />
 <% end %>
-
+<div id="for_size_of_message" style="	display: none; 
+										position: absolute;
+										left: 0px;
+										top: 0px; 
+										background: white;
+										border: 1px solid red;
+										padding: 4px;
+										font-size: 12px;">
+										Осталось <span id="size_of_message">240</span> символов</div>
 <table align="center">
 	<tr>
 		<td>Добавить нового работника</td>
@@ -21,7 +29,7 @@
 			padding: 7px 0px;
 			margin: 0 auto;
 			width: 700px;">
-<%= f.label "Отправить сообщение всем работникам" %> <%= f.text_field :message %>
+<%= f.label "Отправить сообщение всем работникам" %> <%= f.text_field :message, :class => "msg_from_hr" %>
 <%= f.submit "Отправить" %>
 <% end %>
 </div>
@@ -39,7 +47,7 @@
 		<td><%= empl.phone_number %></td>
 		<td>
 			<%= form_for :info, :url => user_sms_for_empl_path(:user_id => session[:id], :employee_id => empl.id)  do |f| %>
-				<%= f.text_field :message, :maxlength => "240", :size => "45x1" %>
+				<%= f.text_field :message, :class => "msg_from_hr", :size => "45x1" %>
 				<%= f.submit "Отправить" %>
 			<% end %>
 		</td>

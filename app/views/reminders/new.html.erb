@@ -1,5 +1,6 @@
-<div class="the_title_of_page">Новое напоминание</div>
+<%= javascript_include_tag "set_time" %>
 
+<div class="the_title_of_page">Новое напоминание</div>
 <% if flash[:notice] %>
 	<div class="notice"><%= flash[:notice] %></div>
 <% end %>
@@ -10,7 +11,7 @@
 	<%= form_for :reminder, :url => {:controller => :reminders, :action => :create}, :user_id => session[:id] do |f| %>
 		<%= f.label "Дата напоминания:" %><br />
 		<span style="font-size: 12px;background-color: #F3E2A9;">В формате: 2013-05-29 15:30</span>
-		<%= f.text_field :time_to_send, :value => Time.now.to_s[0..15] %>
+		<%= f.text_field :time_to_send, :id => "time_to_send" %>
 		<% if @reminder.errors.any? %>
 			<div class="form_errors"><%= @reminder.errors[:time_to_send][0] %></div>
 		<% else %>
@@ -25,8 +26,8 @@
 			<br /><br />
 		<% end %>
 		<%= f.label "Сообщение" %><br />
-		<span style="font-size: 12px;background-color: #F3E2A9;">Размер сообщения до 240 символов</span>
-		<%=f.text_area :message, :size => "25x4", :maxlength => "240" %>
+		<span style="font-size: 12px;background-color: #F3E2A9;">Осталось <span id="size_of_message">240</span> символов</span>
+		<%=f.text_area :message, :id => "message", :size => "25x4", :maxlength => "240" %>
 		<% if @reminder.errors.any? %>
 			<div class="form_errors"><%= @reminder.errors[:message][0] %></div>
 		<% else %>

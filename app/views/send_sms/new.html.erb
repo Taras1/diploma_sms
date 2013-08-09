@@ -1,3 +1,5 @@
+<%= javascript_include_tag "calculation_size_of_message" %>
+
 <div class="the_title_of_page">Отправка SMS</div>
 <% if flash[:notice] %>
 	<div class="notice"><%= flash[:notice] %></div>
@@ -9,10 +11,20 @@
 	<%= form_for :sms,:url => {:controller => :send_sms, :action => :create}, :user_id => session[:id] do |f| %>
 		<%= f.label "Номер телефона:" %><br />
 		<span style="font-size: 12px;background-color: #F3E2A9;">В формате: 38 068 1234567</span>
-		<%=f.text_field :phone_number %><br /><br />
+		<%=f.text_field :phone_number %>
+		<% if @sms.errors.any? %>
+			<div class="form_errors"><%= @sms.errors[:phone_number][0] %></div>
+		<% else %>
+			<br /><br />
+		<% end %>
 		<%= f.label "Сообщение" %><br />
-		<span style="font-size: 12px;background-color: #F3E2A9;">Размер сообщения до 240 символов</span>
-		<%=f.text_area :message, :size => "26x4", :maxlength => "240" %><br /><br />
+		<span style="font-size: 12px;background-color: #F3E2A9;">Осталось <span id="size_of_message">240</span> символов</span>
+		<%=f.text_area :message, :id => "message", :size => "26x4", :maxlength => "240" %>
+		<% if @sms.errors.any? %>
+			<div class="form_errors"><%= @sms.errors[:message][0] %></div>
+		<% else %>
+			<br /><br />
+		<% end %>
 		<br /><br />
 		<%= f.submit "Отправить"%>
 	<% end %>

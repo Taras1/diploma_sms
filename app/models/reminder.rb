@@ -1,5 +1,5 @@
 #encoding: utf-8
-require "smsc_api"
+
 class Reminder < ActiveRecord::Base
   belongs_to :user
   attr_accessible :message, :phone_number, :sms_id, :status, :time_to_send

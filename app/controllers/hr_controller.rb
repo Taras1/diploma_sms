@@ -33,7 +33,7 @@ class HrController < ApplicationController
   def send_sms
     sms = SMSC.new()
     employee = @user.employees.find(params[:employee_id])
-    if employee
+    if employee and (params[:info][:message].size <= 240)
       sms_request = sms.send_sms(employee.phone_number, params[:info][:message], 1)
       status = sms_request.size == 4 ? true : false
       @user.sent_smses.create(:sms_id => sms_request[0], :phone_number => "#{employee.last_name} #{employee.first_name}", :message => params[:info][:message], :status => status)
